@@ -33,4 +33,8 @@ $me['hobbies'][] = 'taxidermy';
 echo '<pre>';
 print_r($me);
 echo'</pre>';
+$me['last_name'] = 'Durand';
+echo '<pre>';
+print_r($me);
+echo'</pre>';
 ?>
