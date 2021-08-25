@@ -1,13 +1,17 @@
 <?php 
-$now = date("H"); 
+$date = new DateTime("now", new DateTimeZone('Europe/Brussels'));
+echo $date->format('H:i:s');
+
+$now = $date -> format('H'); 
 if ($now >= 5 AND $now <= 9)
-echo "Good morning!";
+echo "</br>Good morning!";
 else if ($now > 9 AND $now <= 12)
-echo "Good day!";
+echo "</br>Good day!";
 else if ($now > 12 AND $now <= 16)
-echo "Good afternoon!";
+echo "</br>Good afternoon!";
 else if ($now > 16 AND $now <= 21)
-echo "Good evening!";
+echo "</br>Good evening!";
 else 
-echo "Good night..."; 
+echo "</br>Good night..."; 
+
 ?>
