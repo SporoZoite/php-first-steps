@@ -11,7 +11,7 @@ $possible_states = array (
   4 => "immaculate"
 );
 
-$room_is_filthy = $possible_states[4];
+$room_is_filthy = $possible_states[0];
 
 function cleanup_room() {
   $image = 'https://media0.giphy.com/media/26gscNQHswYio5RBu/200.gif';
