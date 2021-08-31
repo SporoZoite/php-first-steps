@@ -1,8 +1,7 @@
 <?php
 
-declare(strict_types=1);
 
-// include "classes/recipes.php";
+
 /**
  * Included Recipes
  *
@@ -28,6 +27,7 @@ declare(strict_types=1);
 */
 
 $lemon_chicken = new Recipe("Italian Lemon Chicken");
+                     //=>Magic method: __construct
 
 $lemon_chicken->addIngredient("Pasta", 500, "g");
 $lemon_chicken->addIngredient("Chicken Breast", 1, "kg");
@@ -551,3 +551,6 @@ $scones->setYield("10 scones");
 $scones->setSource("Beryl Patmore");
 
 $scones->addTag("breakfast");
+
+
+
