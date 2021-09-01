@@ -23,6 +23,15 @@ public static function listRecipes($titles){
     return implode(",<br>",$titles);
 }
 
+//--------------Shopping List --------------------//
+public static function listIngredients($ingredients){
+    foreach ($ingredients as $ingredient) {
+        return implode(',<br> ', array_map(function ($entry) {
+            return ($entry[key($entry)]);
+          }, $ingredient));
+    }  
+}
+
 }
 
 

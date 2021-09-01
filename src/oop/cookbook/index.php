@@ -12,4 +12,7 @@ $cookbook->addRecipe($lemon_chicken);
 //var_dump($cookbook);
 echo Render::listRecipes($cookbook->getRecipeTitles());
 
+//--------------Shopping List --------------------//
+echo Render::listIngredients($cookbook->getCombineIngredients());
+
 ?>

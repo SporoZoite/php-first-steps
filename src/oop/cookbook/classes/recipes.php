@@ -43,6 +43,20 @@ public function setSource($source){
     $this->source = ucwords($source);
 }
 
+public function addIngredient($item, $amount = null, $measure = null){
+    if($amount != null && !is_float($amount) && !is_int($amount)) {
+        exit("The amount must be a float:".gettype($amount)."$amount given.");
+    }
+    if ($measure!= null && !in_array(strtolower($measure),$this->measurements)) {
+        exit("please enter valid measurement: ".implode(",", $this->measurements));
+    }
+    $this->ingredients[] = array(
+        "item"           => ucwords($item),
+        "amount"         => $amount,
+        "measure"        => $measure
+    );
+}
+
 
 
 
@@ -73,19 +87,7 @@ public function getSource() {
    
 
 
-public function addIngredient($item, $amount = null, $measure = null){
-    if($amount != null && !is_float($amount) && !is_int($amount)) {
-        exit("The amount must be a float:".gettype($amount)."$amount given.");
-    }
-    if ($measure!= null && !in_array(strtolower($measure),$this->measurements)) {
-        exit("please enter valid measurement: ".implode(",", $this->measurements));
-    }
-    $this->ingredients[] = array(
-        "item"           => ucwords($item),
-        "amount"         => $amount,
-        "measure"        => $measure
-    );
-}
+
 
 //-----Magic Method--------------
 public function __construct($title){
