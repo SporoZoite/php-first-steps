@@ -1,14 +1,20 @@
 <?php
 class Render {
+
 //--------method----------------------
     public static function displayRecipe($recipe){
     $output = "";
     $output.=$recipe->getTitle() . " by " . $recipe->getSource();
     $output .="<br>";
     $output.= implode( ", ", $recipe->getTags());
-    $output .="<br>";
+    $output .= "<br>";
+    $output .= $recipe->getYield();
+    $output .= "<br><br>";
     $output.= self::displayIngredients($recipe->getIngredients());
-    return $output;  
+    $output .= "<br>";
+    $output .= implode("<br>", $recipe->getInstructions());
+    $output .= "<br><br>";
+    return $output; 
 } 
 public static function displayIngredients($ingredients){
     $ing="";
@@ -20,19 +26,23 @@ return $ing;
 
 public static function listRecipes($titles){
     asort($titles);
-    return implode(",<br>",$titles);
+    $output="";
+    foreach ($titles as $key => $title){
+        if ($output !=""){
+            $output.="<br>";
+        }
+        $output.= "[$key] $title";
+    }
+    return $output;
 }
 
 //--------------Shopping List --------------------//
-public static function listIngredients($ingredients){
-    foreach ($ingredients as $ingredient) {
-        return implode(',<br> ', array_map(function ($entry) {
-            return ($entry[key($entry)]);
-          }, $ingredient));
+public static function listIngredients($ingredients_list){
+    ksort($ingredients_list);
+    return implode(",<br>",array_keys($ingredients_list));
     }  
 }
-
-}
+    //implode() function returns a string from the elements of an array.
 
 
 

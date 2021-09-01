@@ -3,14 +3,7 @@ class RecipeCollection
 {
     private $title;
     private $recipes = array();
-    private $ingredients = array();
-
-    public function setTitle($title){
-        $this->title = ucwords($title);
-    }
-    public function getTitle(){
-        return $this->title;
-    }    
+ 
     public function addRecipe($recipes){
         $this->recipes[] = $recipes;
     }
@@ -35,20 +28,21 @@ class RecipeCollection
     }
 
 //--------------Shopping List --------------------//
-    public function addIngredients($ingredients){
-        $this->ingredients[] = $ingredients;
-    }
-
-    public function getIngredients() {
-        return $this->ingredients;
-    }
-    public function getCombineIngredients(){
-        $ingredients = array();
-        foreach ($this-> recipes as $recipe){
-            $ingredients[] = $recipe->getIngredients();
+  
+public function getCombinedIngredients()
+{
+    $ingredients = array();
+    foreach ($this->recipes as $recipe) {
+        foreach ($recipe->getIngredients() as $i) {
+            $item = $i['item'];
+            $ingredients[$item][] = array($i["amount"],$i["measure"]);
         }
-        return array_values($ingredients);
     }
+    return $ingredients;
 }
-
+//--------------Meal plan----------------------//
+public function filterById($id){
+return $this->recipes[$id];
+}
+}
 ?>

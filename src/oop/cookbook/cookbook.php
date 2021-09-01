@@ -152,7 +152,7 @@ $lasagna->addTag("dinner,italian");
 $dried_mushroom_ragout = new Recipe("Dried Mushroom Ragout");
 
 $dried_mushroom_ragout->addIngredient("Pearl Onion", 11, "once");
-$dried_mushroom_ragout->addIngredient("Assorted Dried Mushrooms (morels, black fungus, shiitake", 1.3, "once");
+$dried_mushroom_ragout->addIngredient("Assorted Dried Mushrooms (morels, black fungus, shiitake)", 1.3, "once");
 $dried_mushroom_ragout->addIngredient("Butter", 2, "once");
 $dried_mushroom_ragout->addIngredient("Olive Oil", 2, "c. à café");
 $dried_mushroom_ragout->addIngredient("Salt & Pepper to taste");
